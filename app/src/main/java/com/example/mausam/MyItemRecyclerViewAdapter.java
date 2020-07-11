@@ -2,9 +2,11 @@ package com.example.mausam;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mausam.dummy.DummyContent.DummyItem;
@@ -17,10 +19,15 @@ import java.util.List;
  */
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+     List<String> mValues;
+     List<Integer> mimage;
+    Context context;
 
-    public MyItemRecyclerViewAdapter(List<DummyItem> items) {
-        mValues = items;
+    public MyItemRecyclerViewAdapter(Context context,List<String> items,List<Integer> mimage)
+    {
+      mValues = items;
+      this.context=context;
+      this.mimage=mimage;
     }
 
     @Override
@@ -32,9 +39,11 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+
+        holder.imageView2.setImageResource(mimage.get(position));
+        holder.textView.setText(mValues.get(position));
+
+
     }
 
     @Override
@@ -43,21 +52,17 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public DummyItem mItem;
+
+        ImageView imageView2;
+        TextView textView;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            imageView2=view.findViewById(R.id.imageView2);
+            textView=view.findViewById(R.id.textView);
+
         }
 
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
+
     }
 }
