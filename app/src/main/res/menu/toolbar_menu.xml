@@ -5,6 +5,28 @@
     <item
         android:id="@+id/action_menu"
         android:icon="@drawable/ic_menu"
-        android:title="menu"
-        app:showAsAction="always" />
+        android:title="Montreal"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_menu"
+        android:icon="@drawable/ic_menu"
+        android:title="Ottawa"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_menu"
+        android:icon="@drawable/ic_menu"
+        android:title="Tronto"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_menu"
+        android:icon="@drawable/ic_menu"
+        android:title="Gatineau"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_menu"
+        android:icon="@drawable/ic_menu"
+        android:title="Vancouver"
+        app:showAsAction="never" />
 </menu>
