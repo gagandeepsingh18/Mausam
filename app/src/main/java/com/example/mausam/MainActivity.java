@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ArrayAdapter;
 
 import com.example.mausam.adaptor.RecyclerViewAdaptor;
@@ -45,11 +47,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewAdaptor=new MyItemRecyclerViewAdapter(getApplicationContext(),cityList,pics);
         recyclerView.setAdapter(recyclerViewAdaptor);
+    }
 
-
-
-
-
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.toolbar_menu,menu);
+        return true;
     }
 }
