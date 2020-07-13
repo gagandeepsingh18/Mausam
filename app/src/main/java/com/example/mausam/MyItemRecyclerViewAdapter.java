@@ -20,14 +20,16 @@ import java.util.List;
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
      List<String> mValues;
-     List<Integer> mimage;
+     List<String> tempValue;
+     List<Integer> mirage;
     Context context;
 
-    public MyItemRecyclerViewAdapter(Context context,List<String> items,List<Integer> mimage)
+    public MyItemRecyclerViewAdapter(Context context,List<String> items,List<Integer> mimage,List<String> tempValue)
     {
       mValues = items;
       this.context=context;
-      this.mimage=mimage;
+      this.mirage =mimage;
+      this.tempValue=tempValue;
     }
 
     @Override
@@ -40,9 +42,9 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        holder.imageView2.setImageResource(mimage.get(position));
+        holder.imageView2.setImageResource(mirage.get(position));
         holder.textView.setText(mValues.get(position));
-
+        holder.textView2.setText((tempValue.get(position)));
 
     }
 
@@ -55,11 +57,13 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
         ImageView imageView2;
         TextView textView;
+        TextView textView2;
 
         public ViewHolder(View view) {
             super(view);
             imageView2=view.findViewById(R.id.imageView2);
             textView=view.findViewById(R.id.textView);
+            textView2=view.findViewById(R.id.textViewcitylist);
 
         }
 

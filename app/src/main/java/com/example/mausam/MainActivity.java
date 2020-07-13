@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,33 +31,23 @@ import java.util.*;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String BASE_URL = "https://www.metaweather.com/api/location/";
 
-    public void connectingURL() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-        Retrofit retrofit = new Retrofit.Builder()
-
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-
-
-    }
 
 
     private RecyclerView recyclerView;
     private MyItemRecyclerViewAdapter recyclerViewAdaptor;
      ArrayList<String>   cityList;
-    private ArrayAdapter arrayAdapter;
+
     ArrayList<Integer> pics;
+    ArrayList<String> tempratures;
 
 
 
@@ -67,18 +58,40 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+        Call<List<RetroWeather>> call=service.getWeather();
+        call.enqueue(new Callback<List<RetroWeather>>() {
+            @Override
+            public void onResponse(Call<List<RetroWeather>> call, Response<List<RetroWeather>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<RetroWeather>> call, Throwable t) {
+
+            }
+        });
 
 
 
        recyclerView=findViewById(R.id.recy);
        cityList=new ArrayList<>();
        pics=new ArrayList<>();
+       tempratures=new ArrayList<>();
 
         cityList.add(" ");
         cityList.add("ottawa");
         cityList.add("toronto");
         cityList.add("vancouver");
         cityList.add("gatineau");
+
+
+        tempratures.add("32c");
+        tempratures.add("32c");
+        tempratures.add("32c");
+        tempratures.add("32c");
+
+
 
         pics.add(R.drawable.rooom);
         pics.add(R.drawable.rooom);
@@ -87,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         pics.add(R.drawable.rooom);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewAdaptor=new MyItemRecyclerViewAdapter(getApplicationContext(),cityList,pics);
+        recyclerViewAdaptor=new MyItemRecyclerViewAdapter(getApplicationContext(),cityList,pics,tempratures);
         recyclerView.setAdapter(recyclerViewAdaptor);
     }
 

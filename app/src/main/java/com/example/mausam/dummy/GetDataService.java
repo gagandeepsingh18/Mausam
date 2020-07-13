@@ -9,5 +9,5 @@ import retrofit2.http.GET;
 
 public interface GetDataService {
     @GET("/3534")
-    Call<List<RetroWeather>> getAllPhotos();
+    Call<List<RetroWeather>> getWeather();
 }
