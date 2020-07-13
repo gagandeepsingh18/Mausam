@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
             android:text="City Name"
-            android:textColor="#FFFFFF"
+            android:textColor="#C0C0C0"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
