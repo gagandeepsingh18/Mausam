@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgpic"
     tools:context=".MainActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recy"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:backgroundTint="#FFFFFF" />
 </androidx.constraintlayout.widget.ConstraintLayout>

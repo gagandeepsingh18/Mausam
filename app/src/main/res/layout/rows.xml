@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bgpic">
 
         <ImageView
             android:id="@+id/imageView"
@@ -27,6 +28,7 @@
             android:layout_marginStart="24dp"
             android:fontFamily="monospace"
             android:text="City"
+            android:textColor="#FFFFFF"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -40,6 +42,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="monospace"
             android:text="Temprature"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cityName"
@@ -52,6 +55,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="monospace"
             android:text="Weather"
+            android:textColor="#FFFFFF"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
