@@ -12,15 +12,16 @@
         android:background="@color/design_default_color_primary">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageWeather"
             android:layout_width="107dp"
             android:layout_height="104dp"
             android:src="@android:drawable/btn_star_big_on"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.144"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.097" />
+            app:layout_constraintVertical_bias="0.111" />
 
         <TextView
             android:id="@+id/CityName"
@@ -34,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/imageWeather"
             app:layout_constraintVertical_bias="0.095" />
 
         <TextView
@@ -88,38 +89,10 @@
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CityName" />
-
-        <TextView
-            android:id="@+id/Date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="152dp"
-            android:fontFamily="monospace"
-            android:text="Date"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Weather" />
-
-        <TextView
-            android:id="@+id/Time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="monospace"
-            android:text="@string/time"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Date"
-            app:layout_constraintVertical_bias="0.064" />
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toEndOf="@+id/imageWeather"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.158" />
 
         <Button
             android:id="@+id/WeekForecast"
@@ -134,7 +107,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/MinTextField"
+            android:id="@+id/MinTempField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="280dp"
@@ -155,7 +128,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.358"
             app:layout_constraintStart_toEndOf="@+id/MaxTemp"
-            app:layout_constraintTop_toBottomOf="@+id/MinTextField"
+            app:layout_constraintTop_toBottomOf="@+id/MinTempField"
             app:layout_constraintVertical_bias="0.138" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -1,10 +1,13 @@
 
-package com.example.mausam.model;
+package com.example.mausam;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ConsolidatedWeather {
+public class ConsolidatedWeather implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -51,6 +54,36 @@ public class ConsolidatedWeather {
     @SerializedName("predictability")
     @Expose
     private Integer predictability;
+    protected ConsolidatedWeather (Parcel in) {
+        id = in.readInt();
+        weatherStateName=in.readString();
+        weatherStateAbbr=in.readString();
+        windDirectionCompass=in.readString();
+        created=in.readString();
+        applicableDate=in.readString();
+        minTemp= in.readDouble();
+        maxTemp= in.readDouble();
+        theTemp= in.readDouble();
+        windSpeed= in.readDouble();
+        windDirection= in.readDouble();
+        airPressure= in.readDouble();
+        humidity= in.readInt();
+        visibility= in.readDouble();
+        predictability=in.readInt();
+
+
+    }
+    public static final Creator<ConsolidatedWeather> CREATOR = new Creator<ConsolidatedWeather>() {
+        @Override
+        public ConsolidatedWeather createFromParcel(Parcel in) {
+            return new ConsolidatedWeather(in);
+        }
+
+        @Override
+        public ConsolidatedWeather[] newArray(int size) {
+            return new ConsolidatedWeather[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -172,4 +205,28 @@ public class ConsolidatedWeather {
         this.predictability = predictability;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel destination, int flags) {
+
+        destination.writeInt(id);
+        destination.writeString(weatherStateName);
+        destination.writeString(weatherStateAbbr);
+        destination.writeString(windDirectionCompass);
+        destination.writeString(created);
+        destination.writeString(applicableDate);
+        destination.writeDouble(minTemp);
+        destination.writeDouble(maxTemp);
+        destination.writeDouble(theTemp);
+        destination.writeDouble(windSpeed);
+        destination.writeDouble(windDirection);
+        destination.writeDouble(airPressure);
+        destination.writeInt(humidity);
+        destination.writeDouble(visibility);
+        destination.writeInt(predictability);
+    }
 }

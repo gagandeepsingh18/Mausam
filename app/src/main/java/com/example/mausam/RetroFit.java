@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetroFit {
     private static Retrofit retroFit;
-    private static final String BASE_URL = "https://www.metaweather.com/api/location/";
+    private static final String base = "https://www.metaweather.com/api/location/";
 
 
     public  static Retrofit getRetrofitInstance()
@@ -14,7 +14,7 @@ public class RetroFit {
         if (retroFit == null)
         {
             retroFit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(base)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 

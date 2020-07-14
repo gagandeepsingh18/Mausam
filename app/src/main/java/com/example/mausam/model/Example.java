@@ -2,6 +2,8 @@
 package com.example.mausam.model;
 
 import java.util.List;
+
+import com.example.mausam.ConsolidatedWeather;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
