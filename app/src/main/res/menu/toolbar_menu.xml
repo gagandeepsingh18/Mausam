@@ -17,7 +17,7 @@
     <item
         android:id="@+id/action_menu"
         android:icon="@drawable/ic_menu"
-        android:title="Tronto"
+        android:title="Toronto"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_menu"
