@@ -2,31 +2,5 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/action_menu"
-        android:icon="@drawable/ic_menu"
-        android:title="Montreal"
-        app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_menu"
-        android:icon="@drawable/ic_menu"
-        android:title="Ottawa"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_menu"
-        android:icon="@drawable/ic_menu"
-        android:title="Toronto"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_menu"
-        android:icon="@drawable/ic_menu"
-        android:title="Gatineau"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_menu"
-        android:icon="@drawable/ic_menu"
-        android:title="Vancouver"
-        app:showAsAction="never" />
 </menu>
