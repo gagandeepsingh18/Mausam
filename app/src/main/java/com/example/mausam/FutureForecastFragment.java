@@ -43,10 +43,10 @@ public class FutureForecastFragment extends Fragment {
 
 
         View view= inflater.inflate(R.layout.fragment_future_forecast, container, false);
-        showWDetailseather();
+        showWDetailWeather();
         return view;
     }
-    public void showWDetailseather(){
+    public void showWDetailWeather(){
         GetCityDetails getCityDetails = RetroFitClass.getRetroFitInstance().create(GetCityDetails.class);
         Call<Weather> weatherCall;
 
