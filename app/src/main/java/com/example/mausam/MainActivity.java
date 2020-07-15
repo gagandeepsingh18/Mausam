@@ -1,53 +1,35 @@
 package com.example.mausam;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.widget.ArrayAdapter;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 
-import com.example.mausam.dummy.GetDataService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-import java.util.*;
-
-import javax.net.ssl.HttpsURLConnection;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
 
 
-    private RecyclerView recyclerView;
-    private MyItemRecyclerViewAdapter recyclerViewAdaptor;
-     ArrayList<String>   cityList;
-
-    ArrayList<Integer> pics;
-    ArrayList<String> tempratures;
+    public Toolbar toolbar;
+    public DrawerLayout drawerLayout;
+    public NavController navController;
+    public NavigationView navigationView;
 
 
 
@@ -55,18 +37,93 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences sharedPreferences  = getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putString("City", "Montréal");
+        myEdit.apply();
+        setupNavigation();
+
+    }
 
 
+    public void setupNavigation()
+    {
+        toolbar = findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navController = Navigation.findNavController(this,R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout);
+        NavigationUI.setupWithNavController(navigationView,navController);
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.bringToFront();
 
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
 
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.toolbar_menu,menu);
+    public boolean onSupportNavigateUp() {
+        return NavigationUI.navigateUp(Navigation.findNavController(this,R.id.nav_host_fragment),drawerLayout);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        menuItem.setCheckable(true);
+        drawerLayout.closeDrawers();
+        navigationView.setNavigationItemSelectedListener(this);
+
+        Toast.makeText(this, id, Toast.LENGTH_SHORT).show();
+        SharedPreferences sharedPreferences=  getApplicationContext().getSharedPreferences("Preferences",Context.MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        switch (id)
+        {
+            case R.id.m_montreal:
+                myEdit.putString("City", "Montréal");
+                myEdit.apply();
+                navController.navigate(R.id.WeatherFragment);
+                break;
+            case R.id.m_toronto:
+                myEdit.putString("City", "Toronto");
+                myEdit.apply();
+                navController.navigate(R.id.WeatherFragment);
+                break;
+            case R.id.m_vancouver:
+                myEdit.putString("City", "Vancouver");
+                myEdit.apply();
+                navController.navigate(R.id.WeatherFragment);
+                break;
+            case R.id.m_newYork:
+                myEdit.putString("City", "New York");
+                myEdit.apply();
+                navController.navigate(R.id.WeatherFragment);
+                break;
+            case R.id.m_losAngeles:
+                myEdit.putString("City", "Los Angeles");
+                myEdit.apply();
+                navController.navigate(R.id.WeatherFragment);
+                break;
+        }
+
         return true;
     }
+
+
 }
 

@@ -1,5 +1,7 @@
 package com.example.mausam;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class CityDetailsFragment extends Fragment {
     ImageView ImageView;
@@ -31,7 +35,8 @@ public class CityDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences ("Preferences", Context.MODE_PRIVATE);
+        City = sharedPreferences.getString("City", "Montréal");
         View view = inflater.inflate(R.layout.fragment_city_details, container, false);
         CityName = view.findViewById(R.id.CityNameField);
         CurrentTemp = view.findViewById(R.id.CurTempField);
