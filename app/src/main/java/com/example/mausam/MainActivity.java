@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.ArrayAdapter;
 
-import com.example.mausam.adaptor.RecyclerViewAdaptor;
+
 import com.example.mausam.dummy.GetDataService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -58,50 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-        Call<List<RetroWeather>> call=service.getWeather();
-        call.enqueue(new Callback<List<RetroWeather>>() {
-            @Override
-            public void onResponse(Call<List<RetroWeather>> call, Response<List<RetroWeather>> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<List<RetroWeather>> call, Throwable t) {
-
-            }
-        });
 
 
-
-       recyclerView=findViewById(R.id.recy);
-       cityList=new ArrayList<>();
-       pics=new ArrayList<>();
-       tempratures=new ArrayList<>();
-
-        cityList.add(" ");
-        cityList.add("ottawa");
-        cityList.add("toronto");
-        cityList.add("vancouver");
-        cityList.add("gatineau");
-
-
-        tempratures.add("32c");
-        tempratures.add("32c");
-        tempratures.add("32c");
-        tempratures.add("32c");
-
-
-
-        pics.add(R.drawable.rooom);
-        pics.add(R.drawable.rooom);
-        pics.add(R.drawable.rooom);
-        pics.add(R.drawable.rooom);
-        pics.add(R.drawable.rooom);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewAdaptor=new MyItemRecyclerViewAdapter(getApplicationContext(),cityList,pics,tempratures);
-        recyclerView.setAdapter(recyclerViewAdaptor);
     }
 
     @Override

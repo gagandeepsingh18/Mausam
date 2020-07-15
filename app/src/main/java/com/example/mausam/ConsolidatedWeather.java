@@ -9,9 +9,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class ConsolidatedWeather implements Parcelable {
 
-    @SerializedName("id")
+   /* @SerializedName("id")
     @Expose
-    private Integer id;
+    private Integer id; */
     @SerializedName("weather_state_name")
     @Expose
     private String weatherStateName;
@@ -55,7 +55,7 @@ public class ConsolidatedWeather implements Parcelable {
     @Expose
     private Integer predictability;
     protected ConsolidatedWeather (Parcel in) {
-        id = in.readInt();
+       // id = in.readInt();
         weatherStateName=in.readString();
         weatherStateAbbr=in.readString();
         windDirectionCompass=in.readString();
@@ -85,13 +85,13 @@ public class ConsolidatedWeather implements Parcelable {
         }
     };
 
-    public Integer getId() {
+  /*public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
+    }*/
 
     public String getWeatherStateName() {
         return weatherStateName;
@@ -213,7 +213,7 @@ public class ConsolidatedWeather implements Parcelable {
     @Override
     public void writeToParcel(Parcel destination, int flags) {
 
-        destination.writeInt(id);
+        //destination.writeInt(id);
         destination.writeString(weatherStateName);
         destination.writeString(weatherStateAbbr);
         destination.writeString(windDirectionCompass);
