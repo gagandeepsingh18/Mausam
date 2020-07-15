@@ -7,16 +7,21 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +35,8 @@ public class CityDetailsFragment extends Fragment {
     TextView CityName, CurrentTemp, MaxTemp, MinTemp, Weather, WindSpeed, Visibility;
     Weather WeatherObject;
     String City = "";
+    Button FutureBtn;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,7 +52,21 @@ public class CityDetailsFragment extends Fragment {
         Weather = view.findViewById(R.id.Weather);
         WindSpeed= view.findViewById(R.id.WindSpeedField);
         Visibility= view.findViewById(R.id.VisibilityField);
+        FutureBtn= view.findViewById(R.id.FutureForecastButton);
         showWeather();
+        FutureBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FutureForecastFragment fragment = new FutureForecastFragment();
+                fragmentTransaction = getFragmentManager().beginTransaction();
+                Bundle b = new Bundle();
+                b.putString("Weather", City);
+                Log.d("abc", City);
+                fragment.setArguments(b);
+                fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
+                fragmentTransaction.commit();
+            }
+        });
         return  view;
 
     }
@@ -92,7 +113,7 @@ public class CityDetailsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<com.example.mausam.Weather> call, Throwable t) {
-                Log.d("TAG", t.getMessage());
+                Log.d("abc", t.getMessage());
 
                 Toast.makeText(getActivity().getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -104,5 +125,6 @@ public class CityDetailsFragment extends Fragment {
         Picasso.get().load("https://www.metaweather.com/static/img/weather/ico/" + weatherState + ".ico").into(imageView);
 
     }
+
 
 }

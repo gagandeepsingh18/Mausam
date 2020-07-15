@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_marginTop="18dp"
     android:weightSum="5"
+    android:background="@drawable/bgpic"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/FutureForecastRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    </ScrollView>
 
 
 </LinearLayout>

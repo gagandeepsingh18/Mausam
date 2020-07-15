@@ -6,12 +6,16 @@
     app:startDestination="@id/WeatherFragment">
 
     <fragment android:id="@+id/MainFragment"
-        android:name="com.example.mausam.CityListFragment"
-        android:label="fragment_default"
-        tools:layout="@layout/fragment_city_list"/>
+        android:name="com.example.mausam.FutureForecastFragment"
+        android:label="Mausam"
+        tools:layout="@layout/fragment_future_forecast"/>
     <fragment android:id="@+id/WeatherFragment"
         android:name="com.example.mausam.CityDetailsFragment"
-        android:label="fragment_default"
+        android:label="Future Forcast"
         tools:layout="@layout/fragment_city_details"/>
+    <fragment android:id="@+id/DetailsFragment"
+        android:name="com.example.mausam.FutureDetailsFragment"
+        android:label="Mausam"
+        tools:layout="@layout/fragment_future_details"/>
 
 </navigation>

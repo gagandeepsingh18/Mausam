@@ -12,7 +12,7 @@
         android:background="@drawable/bgpic">
 
         <ImageView
-            android:id="@+id/ImageWeatherField"
+            android:id="@+id/ImageWeatherFutureDetailsField"
             android:layout_width="107dp"
             android:layout_height="104dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -23,11 +23,11 @@
             app:layout_constraintVertical_bias="0.202" />
 
         <TextView
-            android:id="@+id/CityNameField"
+            android:id="@+id/DayFutureDetailsField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="City Name"
+            android:text="Day"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +38,7 @@
             app:layout_constraintVertical_bias="0.064" />
 
         <TextView
-            android:id="@+id/CurTempField"
+            android:id="@+id/CurTempFutureDetailsField"
             android:layout_width="117dp"
             android:layout_height="36dp"
             android:layout_marginStart="76dp"
@@ -47,7 +47,7 @@
             android:textColor="#FFFFFF"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ImageWeatherField"
+            app:layout_constraintStart_toEndOf="@+id/ImageWeatherFutureDetailsField"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.269" />
 
@@ -80,7 +80,7 @@
             app:layout_constraintVertical_bias="0.382" />
 
         <TextView
-            android:id="@+id/Weather"
+            android:id="@+id/WeatherFutureDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
@@ -90,13 +90,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toEndOf="@+id/ImageWeatherField"
+            app:layout_constraintStart_toEndOf="@+id/ImageWeatherFutureDetailsField"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.172" />
 
 
         <TextView
-            android:id="@+id/MinTempField"
+            android:id="@+id/MinTempFutureDetailsField"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:layout_marginStart="32dp"
@@ -108,7 +108,7 @@
             app:layout_constraintTop_toBottomOf="@+id/MinTemp" />
 
         <TextView
-            android:id="@+id/MaxTempField"
+            android:id="@+id/MaxTempFutureDetailsField"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:layout_marginStart="52dp"
@@ -116,7 +116,7 @@
             android:text="maxtempfield"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/MinTempField"
+            app:layout_constraintStart_toEndOf="@+id/MinTempFutureDetailsField"
             app:layout_constraintTop_toBottomOf="@+id/MaxTemp" />
 
         <TextView
@@ -148,7 +148,7 @@
             app:layout_constraintVertical_bias="0.6" />
 
         <TextView
-            android:id="@+id/WindSpeedField"
+            android:id="@+id/WindSpeedFutureDetailsField"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:layout_marginStart="32dp"
@@ -160,7 +160,7 @@
             app:layout_constraintTop_toBottomOf="@+id/WindSpeed" />
 
         <TextView
-            android:id="@+id/VisibilityField"
+            android:id="@+id/VisibilityFutureDetailsField"
             android:layout_width="130dp"
             android:layout_height="30dp"
             android:layout_marginStart="40dp"
@@ -168,22 +168,9 @@
             android:text="Visibility"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/WindSpeedField"
+            app:layout_constraintStart_toEndOf="@+id/WindSpeedFutureDetailsField"
             app:layout_constraintTop_toBottomOf="@+id/Visibility" />
 
-        <Button
-            android:id="@+id/FutureForecastButton"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/button"
-            android:backgroundTint="#FFFFFF"
-            android:fontFamily="monospace"
-            android:text="Future Forecast"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
